@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Группы - ВК ВГУ{% endblock %}
+{% block teacher_menu %}{% include 'teacher_menu.html' with number=2 %}{% endblock %}
+{% block content %}
+    {% if groups %}
+        <table class="table table-condensed center-div span7">
+            <tr class="thead">
+                <th>Группа</th>
+                <th>Специальность</th>
+                <th></th>
+                <th></th>
+            </tr>
+            {% for group in groups %}
+                <tr class="tbody">
+                    <td>{{ group.title }}</td>
+                    <td>{{ group.specialty.title }}</td>
+                    <td>
+                        <a href="{% url 'EMDSapp.views.group_edit' group.id %}"> <i title="Редактировать группу"
+                                                                                    class="icon-edit"></i> </a>
+                    </td>
+                    <td>
+                        <a onclick="return confirm('Вы действительно хотите удалить группу?')"
+                           href="{% url 'EMDSapp.views.group_remove' group.id %}">
+                            <i title="Удалить группу" class="icon-remove"></i> </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+    <div style="text-align:center">
+        <a class="btn btn-primary" href="{% url 'EMDSapp.views.group_add' %}">
+            <i class="icon-plus icon-white"></i> Добавить группу
+        </a>
+    </div>
+{% endblock %}

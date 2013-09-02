@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Изменить группу - ВК ВГУ{% endblock %}
+{% block teacher_menu %}{% include 'teacher_menu.html' with number=2 %}{% endblock %}
+{% block content %}
+    <div class="well span5 center-div">
+
+        <h3 class="center">Изменить группу</h3>
+
+        <form class="form-horizontal" action="{% url 'EMDSapp.views.group_edit' fid %}" method="post">
+
+            {{ form|crispy }}
+
+            <div class="controls">
+                <input class="btn btn-primary" type="submit" value="Сохранить"/>
+                <a class="btn" href="{% url 'EMDSapp.views.group_list' %}"> Назад </a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

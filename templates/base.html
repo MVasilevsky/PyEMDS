@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    {% include 'styles.html' %}
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    {% block header %}{% include 'header.html' %}{% endblock %}
+    {% block teacher_menu %}{% endblock %}
+    {% block content %}{% endblock %}
+</body>
+</html>

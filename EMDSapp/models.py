@@ -1,4 +1,6 @@
+from tkinter import _setit
 from django.db import models
+from django.forms import ModelForm
 
 RANKS = (
     ('ml', 'Младший лейтенант'),
@@ -12,10 +14,10 @@ RANKS = (
 
 
 class Address(models.Model):
-    city = models.CharField(max_length=30)
-    street = models.CharField(max_length=30)
-    house = models.CharField(max_length=3)
-    apartment = models.CharField(max_length=4, blank=True)
+    city = models.CharField('Город', max_length=30)
+    street = models.CharField('Улица', max_length=30)
+    house = models.CharField('Дом', max_length=3)
+    apartment = models.CharField('Квартира', max_length=4, blank=True)
 
 
 class Document(models.Model):
@@ -37,12 +39,28 @@ class DocumentInfo(models.Model):
 
 
 class Specialty(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField('Название', max_length=100)
+
+    def __str__(self):
+        return self.title
+
+
+class SpecialtyForm(ModelForm):
+    class Meta:
+        model = Specialty
 
 
 class Group(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField('Название', max_length=100)
     specialty = models.ForeignKey(Specialty)
+
+    def __str__(self):
+        return self.title
+
+
+class GroupForm(ModelForm):
+    class Meta:
+        model = Group
 
 
 class Questionnaire(models.Model):

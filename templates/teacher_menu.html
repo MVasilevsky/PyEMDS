@@ -1,0 +1,24 @@
+<div class="tabbable center-div span11">
+    <ul class="nav nav-tabs">
+
+        <li class="{% ifequal number 1 %}active{% endifequal %}">
+            <a href="{% url 'EMDSapp.views.group_list' %}">Студенты</a>
+        </li>
+
+        <li class="{% ifequal number 2 %}active{% endifequal %}">
+            <a href="{% url 'EMDSapp.views.group_list' %}">Группы</a>
+        </li>
+
+        <li class="{% ifequal number 3 %}active{% endifequal %}">
+            <a href="{% url 'EMDSapp.views.specialty_list' %}">Специальности</a>
+        </li>
+
+        <li class="{% ifequal number 4 %}active{% endifequal %}">
+            <a href="{% url 'EMDSapp.views.group_list' %}">Отчеты</a>
+        </li>
+
+        <li class="pull-right {% ifequal number 5 %}active{% endifequal %}">
+            <a href="{% url 'EMDSapp.views.group_list' %}">Преподаватели</a>
+        </li>
+    </ul>
+</div>
