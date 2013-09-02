@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Специальности - ВК ВГУ{% endblock %}
+{% block teacher_menu %}{% include 'teacher_menu.html' with number=3 %}{% endblock %}
+{% block content %}
+    {% if specialties %}
+        <table class="table table-condensed span7 center-div">
+            <tr class="thead">
+                <th>Специальность</th>
+                <th style="width: 30px"></th>
+                <th style="width: 30px"></th>
+            </tr>
+            {% for spec in specialties %}
+                <tr class="tbody">
+                    <td>
+                        {{ spec.title }}
+                    </td>
+                    <td>
+                        <a href="{% url 'EMDSapp.views.specialty_edit' spec.id %}">
+                            <i title="Редактировать" class="icon-edit"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a onclick="return confirm('Вы действительно хотите удалить специальность?')"
+                           href="{% url 'EMDSapp.views.specialty_remove' spec.id %}">
+                            <i title="Удалить" class="icon-remove"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+    <div style="text-align:center">
+        <a class="btn btn-primary" href="{% url 'EMDSapp.views.specialty_add' %}">
+            <i class="icon-plus icon-white"></i> Добавить специальность
+        </a>
+    </div>
+{% endblock %}

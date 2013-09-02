@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Изменить специальность - ВК ВГУ{% endblock %}
+{% block teacher_menu %}{% include 'teacher_menu.html' with number=3 %}{% endblock %}
+{% block content %}
+    <div class="well span5 center-div">
+
+        <h3 class="center">Изменить специальность</h3>
+
+        <form class="form-horizontal" action="{% url 'EMDSapp.views.specialty_edit' fid %}" method="post">
+
+            {{ form|crispy }}
+
+            <div class="controls">
+                <input class="btn btn-primary" type="submit" value="Сохранить"/>
+                <a class="btn" href="{% url 'EMDSapp.views.specialty_list' %}"> Назад </a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

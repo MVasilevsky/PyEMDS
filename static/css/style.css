@@ -1,0 +1,42 @@
+body {
+    padding-top: 50px;
+    /*    width: 900px!important;*/
+}
+
+.center {
+    text-align: center;
+}
+
+/* for crispy forms */
+.asteriskField {
+    display: none;
+}
+
+.center-div {
+    margin: 0 auto !important;
+    float:none !important;
+}
+
+.loginInput {
+    height: 32px !important;
+}
+
+.loginButton {
+    width: 120px !important;
+}
+
+.error {
+    color: red;
+}
+
+#footer {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    color: blue;
+}
+
+.commentaryTextarea {
+    width: 300px;
+    height: 500px;
+}
